@@ -44,4 +44,4 @@ Detaljer og rationale findes i de dedikerede filer — README gentager dem ikke 
 Før PR: kør headless-tests (kommer) og sikre ingen overlap / performance regressioner. Koordiner større arkitekturændringer via issues.
 
 ## License
-Tilføj evt. licensfil (ikke inkluderet endnu).
+Projektet er licenseret under [MIT-licensen](LICENSE).
