@@ -27,6 +27,7 @@
   ,"test:mouse-spring-refine": "node tests/at_mouse_spring_refine.js"
   ,"test:mouse-spring-adaptive": "node tests/at_mouse_spring_adaptive.js"
   ,"test:mouse-spring-diag-hash": "node tests/at_mouse_spring_diag_hash.js"
+  ,"test:nudge-after-drop": "node tests/at_nudge_after_drop.js"
   ,"test:diag-mini": "node tests/at_diag_mini_eval.js"
   ,"ci:pair-gate": "node scripts/ci-pair-gate.js"
   ,"perf:trend": "node scripts/perf-trend.js"
