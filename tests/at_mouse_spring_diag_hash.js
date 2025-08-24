@@ -1,5 +1,5 @@
 // 4.2d Mouse spring displacement appears only in DIAG segment when diagnostics enabled
-import { World } from '../src/physics/world.js';
+import { buildPresetWorld } from './helpers/flagBuilder.js';
 import { createBrick, _resetBrickIdsForTest } from '../src/interaction/mouse.js';
 
 function fnv(parts){ let h=2166136261>>>0; const str=parts.join('|'); for (let i=0;i<str.length;i++){ h^=str.charCodeAt(i); h=Math.imul(h,16777619)>>>0;} return { hash:h.toString(16), raw:str }; }
@@ -20,7 +20,7 @@ function snapshot(w){
 
 function run(simSpring){
   _resetBrickIdsForTest();
-  const w=new World({ circleDiameter:800, rectWidth:120, rectHeight:80, timeStep:1/60 });
+  const { world: w } = buildPresetWorld({ circleDiameter:800, rectWidth:120, rectHeight:80, timeStep:1/60 });
   w.enableDeterminismMetrics();
   w.enableDeterminismDiagnostics();
   if (simSpring){

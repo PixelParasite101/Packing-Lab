@@ -1,11 +1,9 @@
 // 4.3 MoveCommand batching acceptance test
-import { World } from '../src/physics/world.js';
-import { GameState } from '../src/game/state.js';
+import { buildPresetWorld } from './helpers/flagBuilder.js';
 import { createBrick, _resetBrickIdsForTest } from '../src/interaction/mouse.js';
 
 _resetBrickIdsForTest();
-const world = new World({ circleDiameter:800, rectWidth:120, rectHeight:80, timeStep:1/60 });
-const state = new GameState(world, { circleDiameter:800, rectWidth:120, rectHeight:80 });
+const { world, state } = buildPresetWorld({ circleDiameter:800, rectWidth:120, rectHeight:80, timeStep:1/60 });
 const b = createBrick(0,0,120,80); state.addBrick(b); state.select(b);
 // Simulate a drag with multiple incremental moves
 let from = { x: b.pos.x, y: b.pos.y };

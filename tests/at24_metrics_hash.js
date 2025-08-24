@@ -1,5 +1,5 @@
 // AT24 Metrics Hash Determinism: enabling determinism metrics should produce identical hash across runs.
-import { World } from '../src/physics/world.js';
+import { buildPresetWorld } from './helpers/flagBuilder.js';
 import { createBrick, _resetBrickIdsForTest } from '../src/interaction/mouse.js';
 
 const CONFIG = { circleDiameter:800, rectWidth:120, rectHeight:80, timeStep:1/60 };
@@ -12,7 +12,7 @@ function fnv(parts){
 
 function setupWorld(){
   _resetBrickIdsForTest();
-  const w = new World(CONFIG);
+  const { world: w } = buildPresetWorld(CONFIG);
   w.lastTime = 0;
   const placements = [
     [-150,-40],[-10,-40],[130,-40],

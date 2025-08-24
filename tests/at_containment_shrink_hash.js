@@ -1,10 +1,10 @@
 // 4.1d Containment shrink sequence hash determinism & outOfBounds fallback
-import { World } from '../src/physics/world.js';
+import { buildPresetWorld } from './helpers/flagBuilder.js';
 import { createBrick, _resetBrickIdsForTest } from '../src/interaction/mouse.js';
 
 function buildWorld(){
   _resetBrickIdsForTest();
-  const w = new World({ circleDiameter:1200, rectWidth:120, rectHeight:80, timeStep:1/60 });
+  const { world: w } = buildPresetWorld({ circleDiameter:1200, rectWidth:120, rectHeight:80, timeStep:1/60 });
   w.lastTime = 0;
   // Place several bricks at different radii
   const placements = [
