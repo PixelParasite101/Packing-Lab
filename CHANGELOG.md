@@ -8,6 +8,9 @@ Format: Keep a concise, developer-focused log of notable changes. Use semantic-l
 - 6.6 Konsolider legacy constants vs adaptive set.
 - 6.8 DIAGNOSTICS afsnit i PHYSICS_SPEC.
 
+### Docs
+- Opdaterede versionfelter til 0.2.0 i package.json og README.
+
 ## [0.2.0] - 2025-08-24
 ### Added
 - AT5 performance test og stabil pair reduction (~77%).
