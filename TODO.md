@@ -193,3 +193,11 @@ Hint:
 - Ydelsesmål måles headless + sanity i browser
 
 Arkiv / Historik noter (ikke længere aktive opgave-formuleringer) findes i commit-historik.
+
+# Agent Instructions
+- Læs `todo.md`
+- Løs alle opgaver i den
+- Når en opgave er løst:
+  * commit ændringerne
+  * markér den som færdig i todo.md
+- Gentag indtil der ikke er flere åbne opgaver.
