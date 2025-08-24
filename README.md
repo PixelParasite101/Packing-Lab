@@ -1,4 +1,4 @@
-version: 0.2
+version: 0.2.0
 build_date: 2025-08-24
 
 # PackingLab
