@@ -1,0 +1,13 @@
+{
+  "level_id": "A5",
+  "version": "1.0",
+  "seed": "A5-650-120x80-cross",
+  "name": "A5 — Korsvægge",
+  "mode": "classic_coverage",
+  "goal": { "type": "coverage_at_least", "value": 0.78 },
+  "rules": { "rect": { "w": 120, "h": 80, "rotation": "orthogonal" }, "grid_mm": 10, "physics": { "dt": 0.0167, "substeps": 3, "iterations": 12 } },
+  "arena": { "outer_circle": { "cx": 0, "cy": 0, "r": 325 }, "inner_circles": [], "walls": [
+    { "x1": -325, "y1": 0, "x2": 325, "y2": 0 },
+    { "x1": 0, "y1": -325, "x2": 0, "y2": 325 }
+  ], "forbidden_polys": [] }
+}

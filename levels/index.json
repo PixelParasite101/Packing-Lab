@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "pack_name": "Starter Pack A",
+  "levels": [
+    { "level_id": "A1", "file": "A1.json", "medals": {"bronze": 0.75, "silver": 0.78, "gold": 0.81, "plat": 0.84} },
+    { "level_id": "A3", "file": "A3.json", "medals": {"bronze": 0.72, "silver": 0.75, "gold": 0.78, "plat": 0.81} },
+    { "level_id": "A5", "file": "A5.json", "medals": {"bronze": 0.78, "silver": 0.81, "gold": 0.84, "plat": 0.87} }
+  ]
+}

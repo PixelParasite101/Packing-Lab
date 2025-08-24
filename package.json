@@ -1,0 +1,43 @@
+{
+  "name": "packing-lab-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npx http-server . -p 8080",
+    "test:headless": "node tests/headlessHarness.js",
+  "test:at1": "node tests/at1_placement.js",
+  "test:at2": "node tests/at2_push_chain.js",
+  "test:at24": "node tests/at_determinism.js",
+  "test:at3": "node tests/at3_center_wall.js",
+  "test:at4": "node tests/at4_inner_hole.js"
+  ,"test:adaptive": "node tests/at_adaptive_sanity.js"
+  ,"test:at2a": "node tests/at2_adaptive.js"
+  ,"test:at24a": "node tests/at24_adaptive.js"
+  ,"test:substeps": "node tests/at_substeps_adaptive.js"
+  ,"test:broadphase": "node tests/at_broadphase_pruning.js"
+  ,"test:hash-metrics": "node tests/at24_metrics_hash.js"
+  ,"test:hash-diag": "node tests/at24_metrics_diag_hash.js"
+  ,"test:sleeping-basic": "node tests/at_sleeping_basic.js"
+  ,"test:sleeping-wake": "node tests/at_sleeping_wake.js"
+  ,"test:sleeping-hash": "node tests/at_sleeping_hash.js"
+  ,"test:containment-shrink": "node tests/at_containment_shrink.js"
+  ,"test:containment-shrink-hash": "node tests/at_containment_shrink_hash.js"
+  ,"test:mouse-spring": "node tests/at_mouse_spring.js"
+  ,"test:mouse-spring-refine": "node tests/at_mouse_spring_refine.js"
+  ,"test:mouse-spring-adaptive": "node tests/at_mouse_spring_adaptive.js"
+  ,"test:mouse-spring-diag-hash": "node tests/at_mouse_spring_diag_hash.js"
+  ,"test:diag-mini": "node tests/at_diag_mini_eval.js"
+  ,"ci:pair-gate": "node scripts/ci-pair-gate.js"
+  ,"perf:trend": "node scripts/perf-trend.js"
+  ,"sleep:baseline": "node scripts/sleeping-eff-baseline.js"
+  ,"levels:validate": "node scripts/validate-levels.js"
+  ,"mini-evals": "node scripts/mini-evals.js"
+  ,"perf": "node scripts/perf-snapshot.js"
+  ,"perf:update": "powershell -Command \"$env:PERF_UPDATE='1'; node scripts/perf-snapshot.js\""
+  ,"ci": "node scripts/mini-evals.js && node scripts/perf-snapshot.js && node tests/at_determinism.js && node tests/at24_adaptive.js && node tests/at_substeps_adaptive.js && node tests/at_broadphase_equivalence.js && node tests/at24_metrics_hash.js"
+  },
+  "devDependencies": {
+    "ajv": "^8.12.0"
+  }
+}

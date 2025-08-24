@@ -1,0 +1,26 @@
+[AT3] START
+[AT3] PASS=false maxPenWall=54.000 tol=0.5 overshootCount=1 NaN=false
+[AT3] EXIT code=1
+[AT3] START
+[AT3] PASS=false maxPenWall=54.000 tol=0.5 overshootCount=2 NaN=false
+[AT3] EXIT code=1
+[AT3] START
+[AT3] PASS=false maxPenWall=63.200 tol=0.5 overshootCount=1 NaN=false
+[AT3] EXIT code=1
+[AT3] START
+[AT3] PASS=false maxPenWall=47.200 tol=0.5 overshootCount=1 NaN=false
+[AT3] EXIT code=1
+[AT3] START
+[AT3] PASS=false maxPenWall=32.800 tol=0.5 overshootCount=1 NaN=false
+[AT3] EXIT code=1
+[AT3] START
+[AT3] PASS=true maxPenWall=0.000 tol=0.5 overshootCount=0 NaN=false
+[AT3] EXIT code=0
+[AT3] START
+[AT3] PASS=true maxPenWall=0.000 tol=0.5 overshootCount=0 NaN=false
+[AT3] EXIT code=0
+[AT3] START
+[AT3] WARMUP_DONE
+[AT3] ALARM_ARMED thr=1
+[AT3] PASS=true maxPenWall=0.000 tol=0.5 overshootCount=0 NaN=false alarmThr=1 alarmConsReq=2
+[AT3] EXIT code=0

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <title>Packing Lab Prototype</title>
+  <link rel="stylesheet" href="public/style.css" />
+</head>
+<body>
+  <div id="hud">
+    <div class="row">
+      <label>Diameter: <input id="diameterInput" type="range" min="300" max="1000" value="700" step="10" /></label>
+      <span id="diameterLabel">700</span>
+      <label><input type="checkbox" id="toggleWall" /> Center-væg</label>
+      <label><input type="checkbox" id="toggleInner" /> Indre cirkel</label>
+      <button id="modeBtn">Skift til Edit</button>
+      <span>Brikker: <span id="pieceCount">0</span></span>
+      <span>Dækning: <span id="coverage">0%</span></span>
+      <span>FPS: <span id="fps">0</span></span>
+  <span>Broad: <span id="bms">0</span>ms</span>
+  <span>Narrow: <span id="nms">0</span>ms</span>
+  <span>Solver: <span id="sms">0</span>ms</span>
+  <span>Pairs: <span id="pairInfo">0</span></span>
+  <label><input type="checkbox" id="devLogToggle" /> DevLog</label>
+  <label><input type="checkbox" id="gridToggle" /> Grid</label>
+  <label>Size <input id="gridSize" type="number" value="40" min="4" step="4" style="width:60px" /></label>
+  <label><input type="checkbox" id="nudgeToggle" /> Nudge</label>
+  <label>NudgeDist <input id="nudgeDist" type="number" value="4" min="0" max="30" step="1" style="width:55px" /></label>
+  <label><input type="checkbox" id="autoPackToggle" /> AutoPack</label>
+  <label>Step <input id="autoPackStep" type="number" value="4" min="1" max="40" step="1" style="width:55px" /></label>
+  <label>Iters <input id="autoPackIters" type="number" value="12" min="1" max="200" step="1" style="width:55px" /></label>
+  <label><input type="checkbox" id="penAlarmEnable" /> PenAlarm</label>
+  <label>Thresh <input id="penAlarmThresh" type="number" value="0.8" step="0.05" style="width:60px" /></label>
+  <label>Consec <input id="penAlarmConsec" type="number" value="1" min="1" step="1" style="width:50px" /></label>
+  <span id="penAlarmStatus" style="font-size:12px;opacity:0.8"></span>
+  <span>Goals: <span id="goalStatus" style="font-size:12px;opacity:0.85"></span></span>
+      <label><input type="checkbox" id="springEnable" checked /> Spring</label>
+      <label>Stiffness <input id="springStiff" type="range" min="20" max="400" value="200" step="5" /></label>
+      <label>Damping <input id="springDamp" type="range" min="0" max="0.6" value="0.15" step="0.01" /></label>
+      <label>Adaptive <input type="checkbox" id="springAdaptive" checked /></label>
+      <label>MinFactor <input id="springMinF" type="range" min="0.05" max="0.6" value="0.25" step="0.01" /></label>
+      <label>Curve
+        <select id="springCurve">
+          <option value="quad" selected>quad</option>
+          <option value="cubic">cubic</option>
+          <option value="linear">linear</option>
+          <option value="sqrt">sqrt</option>
+        </select>
+      </label>
+  <label><input type="checkbox" id="springMassScale" /> MassScale</label>
+  <label>RefMass <input id="springRefMass" type="number" min="0.1" value="1" step="0.1" style="width:60px" /></label>
+  <label>Power <input id="springMassPower" type="number" min="0.25" max="4" value="1" step="0.25" style="width:60px" /></label>
+  <span id="springMassInfo" style="font-size:12px;opacity:0.8"></span>
+  <label><input type="checkbox" id="advFricToggle" /> AdvFric</label>
+  <label>μX <input id="advFricMuX" type="number" value="0.6" min="0" max="2" step="0.05" style="width:55px" /></label>
+  <label>μY <input id="advFricMuY" type="number" value="0.4" min="0" max="2" step="0.05" style="width:55px" /></label>
+  <label>SlipRef <input id="advFricSlipRef" type="number" value="60" min="1" max="400" step="5" style="width:65px" /></label>
+  <label><input type="checkbox" id="advFricDynamic" /> Dyn</label>
+    </div>
+  </div>
+  <canvas id="game" width="900" height="900"></canvas>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "level_id": "A3",
+  "version": "1.0",
+  "seed": "A3-700-120x80-hole200",
+  "name": "A3 — Centerhul",
+  "mode": "classic_coverage",
+  "goal": { "type": "coverage_at_least", "value": 0.72 },
+  "rules": { "rect": { "w": 120, "h": 80, "rotation": "orthogonal" }, "grid_mm": 10, "physics": { "dt": 0.0167, "substeps": 3, "iterations": 12 } },
+  "arena": { "outer_circle": { "cx": 0, "cy": 0, "r": 350 }, "inner_circles": [{ "cx": 0, "cy": 0, "r": 100 }], "walls": [], "forbidden_polys": [] }
+}

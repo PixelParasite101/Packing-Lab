@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PackingLab Level Schema",
+  "type": "object",
+  "required": ["level_id","version","seed","name","mode","goal","rules","arena"],
+  "properties": {
+    "level_id": { "type": "string", "pattern": "^[A-Z0-9_-]+$" },
+    "version": { "type": "string" },
+    "seed": { "type": "string" },
+    "name": { "type": "string" },
+    "mode": { "type": "string", "enum": ["classic_coverage"] },
+    "goal": {
+      "type": "object",
+      "required": ["type","value"],
+      "properties": {
+        "type": { "type": "string", "enum": ["coverage_at_least"] },
+        "value": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "rules": {
+      "type": "object",
+      "required": ["rect","grid_mm","physics"],
+      "properties": {
+        "rect": {
+          "type": "object",
+          "required": ["w","h","rotation"],
+          "properties": {
+            "w": { "type": "number", "exclusiveMinimum": 0 },
+            "h": { "type": "number", "exclusiveMinimum": 0 },
+            "rotation": { "type": "string", "enum": ["orthogonal","any"] }
+          },
+          "additionalProperties": false
+        },
+        "grid_mm": { "type": "integer", "minimum": 1 },
+        "physics": {
+          "type": "object",
+          "required": ["dt","substeps","iterations"],
+          "properties": {
+            "dt": { "type": "number", "exclusiveMinimum": 0 },
+            "substeps": { "type": "integer", "minimum": 1, "maximum": 16 },
+            "iterations": { "type": "integer", "minimum": 1, "maximum": 128 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "arena": {
+      "type": "object",
+      "required": ["outer_circle","inner_circles","walls","forbidden_polys"],
+      "properties": {
+        "outer_circle": {
+          "type": "object",
+          "required": ["cx","cy","r"],
+          "properties": {
+            "cx": { "type": "number" },
+            "cy": { "type": "number" },
+            "r": { "type": "number", "exclusiveMinimum": 0 }
+          },
+          "additionalProperties": false
+        },
+        "inner_circles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["cx","cy","r"],
+            "properties": {
+              "cx": { "type": "number" },
+              "cy": { "type": "number" },
+              "r": { "type": "number", "exclusiveMinimum": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "walls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["x1","y1","x2","y2"],
+            "properties": {
+              "x1": { "type": "number" },
+              "y1": { "type": "number" },
+              "x2": { "type": "number" },
+              "y2": { "type": "number" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "forbidden_polys": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["points"],
+            "properties": {
+              "points": {
+                "type": "array",
+                "minItems": 3,
+                "items": {
+                  "type": "object",
+                  "required": ["x","y"],
+                  "properties": {
+                    "x": { "type": "number" },
+                    "y": { "type": "number" }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

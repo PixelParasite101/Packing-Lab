@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "created": "2025-08-24",
+  "notes": "Golden performance baseline for perf-snapshot.js scenario (baseline vs adaptive substeps). Update with `npm run perf:update` after intentional performance-affecting change only.",
+  "scenario": "perf-snapshot default",
+  "baseline": {
+    "broadphaseMs": 0.0006,
+    "narrowphaseMs": 0.0265,
+    "solverMs": 0.2461,
+    "iterations": 40,
+    "substeps": 2
+  },
+  "substeps": {
+    "broadphaseMs": 0.0006,
+    "narrowphaseMs": 0.0366,
+    "solverMs": 0.1576,
+    "iterations": 40,
+    "substeps": 3
+  },
+  "tolerance": {
+    "solverMs": 0.15,
+    "narrowphaseMs": 0.03,
+    "broadphaseMs": 0.01
+  }
+}

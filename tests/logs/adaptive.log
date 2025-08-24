@@ -1,0 +1,60 @@
+f=0 prePen=0.000 it=32 contacts=0
+f=5 prePen=10951410479.732 it=64 contacts=8
+f=10 prePen=1.1807853544176538e+22 it=64 contacts=8
+f=15 prePen=1.2731273852658575e+34 it=64 contacts=8
+f=20 prePen=3.5003618560113644e+48 it=64 contacts=8
+f=25 prePen=3.774103837378581e+60 it=64 contacts=8
+f=30 prePen=4.069253511848725e+72 it=64 contacts=8
+f=35 prePen=1.7205823704757802e+82 it=64 contacts=8
+relax f=0 prePen=1.8551386382487025e+94 it=64 contacts=8
+relax f=20 prePen=2.5071480455922185e+142 it=64 contacts=8
+relax f=40 prePen=8.640199466466519e+192 it=64 contacts=8
+relax f=60 prePen=1.1676895062855316e+241 it=64 contacts=8
+relax f=80 prePen=1.5780871591925706e+289 it=64 contacts=8
+relax f=100 prePen=NaN it=64 contacts=1
+DONE iterations=64
+f=0 prePen=20.000 it=40 contacts=1
+f=5 prePen=0.000 it=40 contacts=0
+f=10 prePen=0.000 it=40 contacts=0
+f=15 prePen=0.000 it=20 contacts=0
+f=20 prePen=0.000 it=16 contacts=0
+f=25 prePen=0.000 it=16 contacts=0
+f=30 prePen=0.000 it=16 contacts=0
+f=35 prePen=0.000 it=16 contacts=0
+relax f=0 prePen=0.000 it=16 contacts=0
+relax f=20 prePen=0.000 it=16 contacts=0
+relax f=40 prePen=0.000 it=16 contacts=0
+relax f=60 prePen=0.000 it=16 contacts=0
+relax f=80 prePen=0.000 it=16 contacts=0
+relax f=100 prePen=0.000 it=16 contacts=0
+DONE iterations=16
+f=0 prePen=0.000 it=32 contacts=0
+f=5 prePen=0.000 it=40 contacts=0
+f=10 prePen=0.000 it=40 contacts=0
+f=15 prePen=0.000 it=20 contacts=0
+f=20 prePen=0.000 it=20 contacts=0
+f=25 prePen=0.000 it=16 contacts=0
+f=30 prePen=0.000 it=16 contacts=0
+f=35 prePen=0.000 it=16 contacts=0
+relax f=0 prePen=0.000 it=16 contacts=0
+relax f=20 prePen=0.000 it=16 contacts=0
+relax f=40 prePen=0.000 it=16 contacts=0
+relax f=60 prePen=0.000 it=16 contacts=0
+relax f=80 prePen=0.000 it=16 contacts=0
+relax f=100 prePen=0.000 it=16 contacts=0
+DONE iterations=16
+f=0 prePen=0.000 it=32 contacts=0
+f=5 prePen=0.000 it=40 contacts=0
+f=10 prePen=0.000 it=40 contacts=0
+f=15 prePen=0.000 it=20 contacts=0
+f=20 prePen=0.000 it=20 contacts=0
+f=25 prePen=0.000 it=16 contacts=0
+f=30 prePen=0.000 it=16 contacts=0
+f=35 prePen=0.000 it=16 contacts=0
+relax f=0 prePen=0.000 it=16 contacts=0
+relax f=20 prePen=0.000 it=16 contacts=0
+relax f=40 prePen=0.000 it=16 contacts=0
+relax f=60 prePen=0.000 it=16 contacts=0
+relax f=80 prePen=0.000 it=16 contacts=0
+relax f=100 prePen=0.000 it=16 contacts=0
+DONE iterations=16

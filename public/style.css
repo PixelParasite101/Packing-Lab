@@ -1,0 +1,8 @@
+body { margin:0; font-family: system-ui, sans-serif; background:#111; color:#eee; }
+#hud { position:fixed; top:0; left:0; right:0; background:rgba(0,0,0,0.7); padding:6px 10px; font-size:14px; }
+#hud .row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+#hud input[type=range] { vertical-align:middle; }
+#hud label { display:flex; gap:4px; align-items:center; }
+canvas { background:#181a1f; display:block; margin:70px auto 20px; border:1px solid #333; }
+.valid { outline:2px solid #2ecc71; }
+.invalid { outline:2px solid #e74c3c; }

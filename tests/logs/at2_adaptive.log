@@ -1,0 +1,12 @@
+[AT2A] START
+[AT2A] SPAWN_DONE firstId=1 lastId=10
+[AT2A] ADAPTIVE_ENABLED baseIter=32
+[AT2A] ITER_CHANGE frame=push-1 32->40 prePen=11.000 cc=1
+[AT2A] ITER_CHANGE frame=push-2 40->48 prePen=6.500 cc=1
+[AT2A] ITER_CHANGE frame=push-3 48->56 prePen=50.000 cc=1
+[AT2A] ITER_CHANGE frame=push-14 56->48 prePen=0.000 cc=0
+[AT2A] ITER_CHANGE frame=push-27 48->40 prePen=0.000 cc=0
+[AT2A] ITER_CHANGE frame=relax-9 40->32 prePen=0.000 cc=0
+[AT2A] ITER_CHANGE frame=relax-21 32->24 prePen=0.000 cc=0
+[AT2A] PASS=true maxPen=0.000 tol=0.5 NaN=false escalated=true iterStart=32 iterEnd=24 maxIterUsed=56
+[AT2A] EXIT code=0

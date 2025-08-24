@@ -1,0 +1,8 @@
+[AT2] START
+[AT2] SPAWN_DONE firstId=1 lastId=10
+[AT2] WARMUP_DONE
+[AT2] PUSH_PHASE_DONE
+[AT2] ALARM_ARMED thr=1
+[AT2] RELAX_PHASE_DONE
+[AT2] PASS=true maxPen=0.000 tol=0.5 it=32 NaN=false alarmThr=1 alarmConsReq=2
+[AT2] EXIT code=0
