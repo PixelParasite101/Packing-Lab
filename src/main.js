@@ -21,7 +21,7 @@ const state = new GameState(world, CONFIG);
 const metrics = new Metrics(state, world);
 const mouse = new MouseController(canvas, state, world);
 
-// HUD bindings
+// HUD (heads-up display) bindings
 const diameterInput = document.getElementById('diameterInput');
 const diameterLabel = document.getElementById('diameterLabel');
 const modeBtn = document.getElementById('modeBtn');
@@ -73,8 +73,15 @@ world.enableMouseSpringConstraint({});
 const goals = new GoalEvaluator(state, world);
 
 function applySpringSettings(){
+  if (!springEnable || !springStiff || !springDamp || !springAdaptive ||
+      !springMinF || !springCurve || !springMassScale || !springRefMass ||
+      !springMassPower || !springMassInfo){
+    console.warn('Spring HUD controls missing; skipping spring setup');
+    return;
+  }
   if (!springEnable.checked){
     world.disableMouseSpringConstraint();
+    springMassInfo.textContent = '';
     return;
   }
   world.enableMouseSpringConstraint({
@@ -93,16 +100,22 @@ function applySpringSettings(){
     springMassInfo.textContent = '';
   }
 }
-springEnable.addEventListener('change', applySpringSettings);
-springStiff.addEventListener('input', applySpringSettings);
-springDamp.addEventListener('input', applySpringSettings);
-springAdaptive.addEventListener('change', applySpringSettings);
-springMinF.addEventListener('input', applySpringSettings);
-springCurve.addEventListener('change', applySpringSettings);
-springMassScale.addEventListener('change', applySpringSettings);
-springRefMass.addEventListener('input', applySpringSettings);
-springMassPower.addEventListener('input', applySpringSettings);
-applySpringSettings();
+if (springEnable && springStiff && springDamp && springAdaptive &&
+    springMinF && springCurve && springMassScale && springRefMass &&
+    springMassPower && springMassInfo){
+  springEnable.addEventListener('change', applySpringSettings);
+  springStiff.addEventListener('input', applySpringSettings);
+  springDamp.addEventListener('input', applySpringSettings);
+  springAdaptive.addEventListener('change', applySpringSettings);
+  springMinF.addEventListener('input', applySpringSettings);
+  springCurve.addEventListener('change', applySpringSettings);
+  springMassScale.addEventListener('change', applySpringSettings);
+  springRefMass.addEventListener('input', applySpringSettings);
+  springMassPower.addEventListener('input', applySpringSettings);
+  applySpringSettings();
+} else {
+  console.warn('Spring controls missing; mouse spring disabled');
+}
 
 devLogToggle.addEventListener('change', ()=>{
   if (devLogToggle.checked){
@@ -113,6 +126,10 @@ devLogToggle.addEventListener('change', ()=>{
 });
 
 function applyPenAlarm(){
+  if (!penAlarmEnable || !penAlarmThresh || !penAlarmConsec || !penAlarmStatus){
+    console.warn('Penetration alarm controls missing; skipping');
+    return;
+  }
   if (!penAlarmEnable.checked){
     setPenetrationAlarm(null);
     penAlarmStatus.textContent = '';
@@ -122,10 +139,14 @@ function applyPenAlarm(){
   const consec = Math.max(1, Number(penAlarmConsec.value)|0);
   configurePenetrationAlarm({ threshold: thr, consecutive: consec });
 }
-penAlarmEnable.addEventListener('change', applyPenAlarm);
-penAlarmThresh.addEventListener('input', applyPenAlarm);
-penAlarmConsec.addEventListener('input', applyPenAlarm);
-applyPenAlarm();
+if (penAlarmEnable && penAlarmThresh && penAlarmConsec){
+  penAlarmEnable.addEventListener('change', applyPenAlarm);
+  penAlarmThresh.addEventListener('input', applyPenAlarm);
+  penAlarmConsec.addEventListener('input', applyPenAlarm);
+  applyPenAlarm();
+} else {
+  console.warn('Penetration alarm HUD elements not found');
+}
 function applyAdvancedFriction(){
   if (!advFricToggle) return;
   if (!advFricToggle.checked){ world.disableAdvancedFriction(); return; }
