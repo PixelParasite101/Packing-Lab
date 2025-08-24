@@ -194,10 +194,83 @@ Hint:
 
 Arkiv / Historik noter (ikke længere aktive opgave-formuleringer) findes i commit-historik.
 
-# Agent Instructions
-- Læs `todo.md`
-- Løs alle opgaver i den
-- Når en opgave er løst:
-  * commit ændringerne
-  * markér den som færdig i todo.md
-- Gentag indtil der ikke er flere åbne opgaver.
+Agent: Codex/GPT-5
+Role: Implementerings- og vedligeholdsagent for dette repo
+Version: v1.0
+Build-date: 2025-08-24
+
+Formål
+- Læs og eksekvér alle åbne opgaver i ./todo.md systematisk.
+- Leverér små, sikre ændringer (patchlets) med tests og dokumentation.
+- Opdatér ./todo.md undervejs, så fremdrift er synlig.
+
+Scope og begrænsninger
+- Arbejd kun i filer, som opgaverne eksplicit berører, plus nødvendige nært-relaterede moduler, tests og docs.
+- Ingen brede refactorings uden opgave der siger det.
+- Bevar offentlig API-stabilitet, medmindre en opgave kræver ændringen og der laves migrationsnotits.
+
+Arbejdsgang (kør i rækkefølge)
+1) Parse todo.md
+   - Identificér opgaver markeret med "- [ ]".
+   - Respekter evt. metadata i enden af linjen: (prio:high), (labels:test,bug), (deps:#23).
+   - Sortér i rækkefølge: prio:high → medium → low. Respektér deps (løses først når afhængigheder er [x]).
+
+2) For hver opgave
+   a) Afklaringsfase
+      - Hvis opgaven er tvetydig: skriv et “Afklaringsblok”-forslag i patchlet til todo.md, hvor du tilføjer en underlinje under opgaven med "AFKLARING:" og konkrete spørgsmål.
+      - Hvis der kræves ny filstruktur: foreslå minimal strukturændring i patchlet, ikke ad hoc store flyt.
+
+   b) Test først
+      - Tilføj eller opdatér automatiske tests, der beviser opgavens ønskede adfærd.
+      - Brug repoets eksisterende teststack. Hvis ukendt, foreslå PyTest/Jest-vitest eller tilsvarende, men hold det minimalt.
+      - Property-baserede tests hvor det giver mening.
+
+   c) Implementering
+      - Lav den minimale ændring der får testen grønt.
+      - Følg SOLID og eksisterende patterns i repoet. Undgå duplikeret kode. Dokumentér offentlige funktioner kort.
+
+   d) Kvalitetstjek
+      - Kør formatter/linter i patchlet-kommentar (uden at masseændre stil).
+      - Ydelsestjek kun hvis opgave eller test indikerer performance-problem.
+
+   e) Patchlet og status
+      - Leverér som unified diff (patchlet) med mindst mulig blast radius.
+      - Opdatér todo.md: skift "- [ ]" → "- [x]" og tilføj " – done:YYYY-MM-DD by:AI".
+      - Hvis delvist løst: tilføj underpunkt "- [ ] Del 2: …".
+      - Tilføj CHANGELOG-udsnit i patchlet, hvis repoet har changelog; ellers tilføj kort “CHANGES:” note i commitbeskrivelsen.
+
+Patchlet format (krav)
+- Ét eller flere unified diffs i én blok.
+- Hver fil ændring starter med:
+  --- a/<sti/fil>
+  +++ b/<sti/fil>
+- Inkludér kun relevante hunks. Undgå kosmetiske masseredigeringer.
+- Efter diffs, indsæt en kort commit-besked:
+
+COMMIT MESSAGE
+type(scope): kort titel
+
+- Hvad og hvorfor i 1–3 bullets
+- Tests: nye/opdaterede filer nævnt ved sti
+- Breaking changes: nej/ja (+ migration)
+END COMMIT MESSAGE
+
+Stopkriterier
+- Stop når der ikke er flere "- [ ]" i todo.md, eller når en opgave kræver menneskelig beslutning, som du ikke kan aflede.
+- I så fald: opret en “AFKLARING NØDVENDIG” under opgaven i todo.md og fortsæt til næste opgave.
+
+Fejlhåndtering
+- Hvis test fejler uventet: rull sidste ændring tilbage i patchlet og beskriv årsag og forslag til løsning.
+- Hvis afhængighed ikke findes: foreslå minimal dependency eller stub med klar TODO-tag.
+
+Yderligere retningslinjer
+- Sprog i docs og todo.md: dansk (korte, klare sætninger).
+- Kommentarer i kode: samme sprog som resten af koden.
+- Bevar filernes eksisterende stil.
+- Store binære eller genererede filer må ikke tilføjes.
+
+Eksekveringsprompt (sådan kaldes denne agent)
+- Læs denne agent.md fuldt.
+- Start nu ved trin 1 og leverér første patchlet for første opgave i todo.md.
+- Fortsæt opgaverne én for én, og leverér et patchlet pr. opgave.
+
