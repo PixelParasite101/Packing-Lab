@@ -23,13 +23,9 @@ Ikke-mål i tidlig MVP: fri rotation, touch/mobil, netværk, auto-pack algoritme
 - Arkitektur & modulansvar: `ARCHITECTURE.md`
 - Fysik & solver detaljer: `PHYSICS_SPEC.md`
 - Test/acceptance: `TESTS.md`
-- Roadmap: `ROADMAP.md`
-- Checklister: `CHECKLISTS.md`
-- Contributing workflow: `CONTRIBUTING.md`
-- Coding standards: `CODING_STANDARDS.md`
+- Implementationsstatus: `IMPLEMENTATION_STATUS.md`
 - Level schema: `LEVEL_SCHEMA.json`
 - Eksempel levels: `levels/` (se `levels/index.json`)
-- Arkitekturvalg (ADR): `ADR/0001-pbd-vs-impuls.md`
 
 ## Standardparametre (summary)
 - diameter_mm: 700
@@ -45,7 +41,7 @@ Detaljer og rationale findes i de dedikerede filer — README gentager dem ikke 
 - Ingen tredjeparts fysikbibliotek; alt er modulært for potentiel backend-udskiftning.
 
 ## Bidrag & kvalitet
-Før PR: kør headless-tests (kommer) og sikre ingen overlap / performance regressioner. Følg coding standards og opdater ADR ved arkitekturændringer.
+Før PR: kør headless-tests (kommer) og sikre ingen overlap / performance regressioner. Koordiner større arkitekturændringer via issues.
 
 ## License
 Tilføj evt. licensfil (ikke inkluderet endnu).
