@@ -1,5 +1,5 @@
 # Repo Agent
-Version: v1.6 • build: 2025-08-24
+Version: v1.7 • build: 2025-08-24
 Role: AI-udviklingsleder / repository-agent der bevarer invarians og styrer evolution.
 Stil: Kort, præcis, TDD/TDT (test/mini-evals før ændring), små patchlets, minimal fil-støj.
 
@@ -124,6 +124,7 @@ rollback:
 
 ---
 ## Statuslog (seneste øverst)
+2025-08-24 • v1.7 • Tilføjet MIT LICENSE-fil for klar licensiering.
 2025-08-24 • v1.6 • Tilføjet Sleeping, Containment Shrink Pass, Mouse Spring Constraint invarians + nye Orakler O11–O13; metrics (containmentRepositions, outOfBoundsCount, mouseSpringDisplacement) ekskluderet fra hash.
 2025-08-24 • v1.5 • Diagnostics hash flag (broadphasePairs) bag separat enable; ny Orakel O10.
 2025-08-24 • v1.4 • Spatial hash (gitter-broadphase) bag flag + metrics hash extension (totalIterations, finalContactCount) + nye Orakler O8/O9.
