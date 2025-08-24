@@ -1,11 +1,9 @@
 // AT6 Undo/Redo sequence integrity
-import { World } from '../src/physics/world.js';
-import { GameState } from '../src/game/state.js';
+import { buildPresetWorld } from './helpers/flagBuilder.js';
 import { createBrick, _resetBrickIdsForTest } from '../src/interaction/mouse.js';
 
 _resetBrickIdsForTest();
-const world = new World({ circleDiameter:800, rectWidth:120, rectHeight:80, timeStep:1/60 });
-const state = new GameState(world, { circleDiameter:800, rectWidth:120, rectHeight:80 });
+const { world, state } = buildPresetWorld({ circleDiameter:800, rectWidth:120, rectHeight:80, timeStep:1/60 });
 
 // Place 5 bricks via command stack so they are undoable
 const bricks=[];

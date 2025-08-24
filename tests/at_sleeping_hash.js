@@ -1,12 +1,12 @@
 // 2.10 Sleeping-system determinism: enabling sleeping must not change hash.
-import { World } from '../src/physics/world.js';
+import { buildPresetWorld } from './helpers/flagBuilder.js';
 import { createBrick, _resetBrickIdsForTest } from '../src/interaction/mouse.js';
 
 const CONFIG = { timeStep:1/60, rectWidth:120, rectHeight:80 };
 
 function setupWorld(enableSleeping){
   _resetBrickIdsForTest();
-  const w = new World(CONFIG);
+  const { world: w } = buildPresetWorld(CONFIG);
   w.lastTime = 0;
   const placements = [
     [-200,-40],[-40,-40],[120,-40],

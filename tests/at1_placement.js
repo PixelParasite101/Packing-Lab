@@ -6,8 +6,7 @@
 //  - Invalid (overlap) placement ignored
 //  - No overlaps after valid placements
 
-import { World } from '../src/physics/world.js';
-import { GameState } from '../src/game/state.js';
+import { buildPresetWorld } from './helpers/flagBuilder.js';
 import fs from 'fs';
 
 const CONFIG = { circleDiameter:700, rectWidth:120, rectHeight:80, timeStep:1/60 };
@@ -32,10 +31,7 @@ function attemptPlace(state, x, y){
 }
 
 function runAT1(){
-  const world = new World(CONFIG);
-  const state = new GameState(world, CONFIG);
-  // Ensure arena sync
-  state.applyArenaFlags && state.applyArenaFlags();
+  const { world, state } = buildPresetWorld(CONFIG);
 
   const results = { addedValid: false, blockedOutside:false, blockedOverlap:false, noOverlap:true };
 
